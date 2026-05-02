@@ -6,8 +6,6 @@ Démonstration de l'attaque de Wiener (1990) :
 si d < (1/3) * N^(1/4), alors d peut être retrouvé
 par développement en fractions continues de e/N.
 
-Auteur : Rachid Ghodbane - rvsh0x
-
 Usage :
     python3 wiener_rsa.py <e_hex_ou_decimal> <N_hex_ou_decimal>
 
@@ -316,8 +314,9 @@ def attack(e, N, output_file="id_rsa"):
     print()
 
     # Vérification préliminaire
-    bound = (N ** (1/4)) / 3
-    print(f"[*] Borne de Wiener : d doit être < {bound:.2e} pour que l'attaque fonctionne.")
+    # N est trop grand pour float — on calcule N^(1/4) via deux isqrt successifs
+    bound = isqrt(isqrt(N)) // 3
+    print(f"[*] Borne de Wiener : d doit être < {bound} pour que l'attaque fonctionne.")
     print()
 
     # Étape 1 : Retrouver d
