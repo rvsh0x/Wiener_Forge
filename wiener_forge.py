@@ -6,6 +6,8 @@ Démonstration de l'attaque de Wiener (1990) :
 si d < (1/3) * N^(1/4), alors d peut être retrouvé
 par développement en fractions continues de e/N.
 
+Auteur : Rachid Ghodbane -- Rvsh0x
+
 Usage :
     python3 wiener_rsa.py <e_hex_ou_decimal> <N_hex_ou_decimal>
 
